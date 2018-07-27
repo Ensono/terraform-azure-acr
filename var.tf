@@ -19,3 +19,7 @@ variable "registry_admin_enabled" {
 variable "registry_storage_class" {
   default = "Standard"
 }
+
+variable "create_resource" {
+  default = true
+}

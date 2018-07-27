@@ -1,4 +1,5 @@
 resource "azurerm_container_registry" "registry" {
+  count               = "${var.create_resource ? 1 : 0 }"
   name                = "${var.registry_name}"
   resource_group_name = "${var.resource_group_name}"
   location            = "${var.resource_group_location}"
@@ -10,7 +11,7 @@ resource "azurerm_container_registry" "registry" {
 
 # Storage Accounts are only required for Classic/Unmanaged Registry SKUs, so this is a conditional creation
 resource "azurerm_storage_account" "registry" {
-  count                    = "${var.registry_sku_is_classic}"
+  count                    = "${var.registry_sku_is_classic * var.create_resource}"
   name                     = "${azurerm_resource_group.registry.name}"
   resource_group_name      = "${azurerm_resource_group.registry.name}"
   location                 = "${azurerm_resource_group.registry.location}"
