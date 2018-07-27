@@ -1,10 +1,8 @@
-variable "resource_group_location" {
-  default = "westeurope"
-}
+variable "resource_group_location" {}
 
-variable "resource_group_name" {
-  default = "refazurecr"
-}
+variable "resource_group_name" {}
+
+variable "registry_name" {}
 
 variable "registry_sku" {
   default = "Standard"
@@ -21,4 +19,3 @@ variable "registry_admin_enabled" {
 variable "registry_storage_class" {
   default = "Standard"
 }
-

@@ -1,12 +1,7 @@
-resource "azurerm_resource_group" "registry" {
-  name     = "${var.resource_group_name}"
-  location = "${var.resource_group_location}"
-}
-
 resource "azurerm_container_registry" "registry" {
-  name                = "${azurerm_resource_group.registry.name}"
-  resource_group_name = "${azurerm_resource_group.registry.name}"
-  location            = "${azurerm_resource_group.registry.location}"
+  name                = "${var.registry_name}"
+  resource_group_name = "${var.resource_group_name}"
+  location            = "${var.resource_group_location}"
   admin_enabled       = "${var.registry_admin_enabled}"
   sku                 = "${var.registry_sku}"
 
