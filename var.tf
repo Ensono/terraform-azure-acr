@@ -10,10 +10,12 @@ variable "registry_sku" {
 
 variable "registry_sku_is_classic" {
   default = false
+  type = bool
 }
 
 variable "registry_admin_enabled" {
   default = true
+  type = bool
 }
 
 variable "registry_storage_class" {
@@ -22,4 +24,5 @@ variable "registry_storage_class" {
 
 variable "create_resource" {
   default = true
+  type = bool
 }
