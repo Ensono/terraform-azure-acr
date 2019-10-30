@@ -1,28 +1,59 @@
-variable "resource_group_location" {}
+##################################################
+# Control Vars
+##################################################
 
-variable "resource_group_name" {}
-
-variable "registry_name" {}
-
-variable "registry_sku" {
-  default = "Standard"
-}
-
-variable "registry_sku_is_classic" {
+variable "create_resource_group" {
+  type = bool
   default = false
-  type = bool
 }
 
-variable "registry_admin_enabled" {
-  default = true
-  type = bool
+# If this is set to false, a valid resource_group_name 
+# and resource_group_location need to be specified below
+
+
+##################################################
+# Resource Group info
+##################################################
+
+variable "resource_group_location" {
+  type = string
 }
 
-variable "registry_storage_class" {
-  default = "Standard"
+variable "resource_group_name" {
+  type = string
 }
 
-variable "create_resource" {
-  default = true
+variable "resource_group_tags" {
+  type = string
+}
+
+##################################################
+# Vault Config
+##################################################
+
+variable "vault_name" {
+  type = string
+}
+
+variable "vault_sku" {
+  type = string
+  default = "standard"
+}
+
+##################################################
+# Vault Security
+##################################################
+
+variable "block_access_by_default" {
   type = bool
+  default = false
+ }
+
+variable "permitted_subnet_ids" {
+  type = list
+  default = []
+}
+variable "permitted_cidr_ranges" {
+  type = list
+  default = []
 }
