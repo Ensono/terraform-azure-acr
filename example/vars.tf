@@ -1,7 +1,3 @@
-variable "resource_group_location" {
-  default = "northeurope"
-}
-
-variable "resource_group_name" {
-  default = "refaks2"
-}
+# Empty
+variable "create_resource_group" {}
+variable "resource_group_location" {}

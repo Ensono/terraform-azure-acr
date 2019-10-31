@@ -1,7 +1,7 @@
-output "ACR-loginserver" {
-  value = "${module.aks-registry.login_server}"
+output "keyvault_id" {
+  value = "${module.keyvault.keyvault_id}"
 }
 
-output "ACR-adminpw" {
-  value = "${module.aks-registry.admin_password}"
+output "keyvault_url" {
+  value = "${module.keyvault.keyvault_uri}"
 }

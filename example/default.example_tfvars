@@ -1,0 +1,2 @@
+create_resource_group = true
+resource_group_location = "uksouth"

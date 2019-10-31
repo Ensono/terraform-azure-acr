@@ -9,8 +9,8 @@ resource "azurerm_key_vault" "vault" {
   network_acls {
     default_action = var.block_access_by_default  ? "Deny" : "Allow"
     bypass         = "AzureServices"
-    virtual_network_subnet_ids = var.block_access_by_default  ? var.permitted_subnet_ids : 0
-    ip_rules = var.block_access_by_default  ? var.permitted_cidr_ranges : 0
+    virtual_network_subnet_ids = var.block_access_by_default  ? var.permitted_subnet_ids : []
+    ip_rules = var.block_access_by_default  ? var.permitted_cidr_ranges : []
   }
 
   tags = var.resource_group_tags

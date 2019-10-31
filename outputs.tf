@@ -1,15 +1,12 @@
-output "registry_id" {
-  value = "${element(concat(azurerm_container_registry.registry.*.id, list("")), 0)}"
+output "keyvault_id" {
+  # used in conjunction with count logic on resource
+  # value = "${element(concat(azurerm_key_vault.vault.*.id, list("")), 0)}"
+  value = azurerm_key_vault.vault.id
+
 }
 
-output "login_server" {
-  value = "${element(concat(azurerm_container_registry.registry.*.login_server, list("")), 0)}"
-}
-
-output "admin_username" {
-  value = "${element(concat(azurerm_container_registry.registry.*.admin_username, list("")), 0)}"
-}
-
-output "admin_password" {
-  value = "${element(concat(azurerm_container_registry.registry.*.admin_password, list("")), 0)}"
+output "keyvault_uri" {
+  # used in conjunction with count logic on resource
+  # value = "${element(concat(azurerm_key_vault.vault.*.vault_uri, list("")), 0)}"
+  value = azurerm_key_vault.vault.vault_uri
 }
